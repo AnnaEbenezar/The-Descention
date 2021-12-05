@@ -22,12 +22,13 @@ int main( )
     titletexture.loadFromImage(titlescreen);  //Load Texture from image
     sf::Sprite titlesprite;
     titlesprite.setTexture(titletexture);
+    titlesprite.setScale(1.5,1.5);
     int titlestate=1; //สเตตัสว่าอยู่ไตเติลหรือเปล่า
     sf::RenderWindow window(sf::VideoMode(1100, 1100), "The Game"); //เปิดหน้าต่างที่ใช้วาดภาพ***
     while (window.isOpen()) //คำสั่งนี้คือบังคับหน้าต่างให้เปิดทิ้งไว้***
         {
+
             if (titlestate==1){
-                    sf::Event event;
                 window.draw(titlesprite);
                 sf::Text titletext;
                 titletext.setFont(font);
@@ -37,28 +38,33 @@ int main( )
                 titletext.setPosition(400,850);
                 window.draw(titletext);
                 window.display();
-                while (window.pollEvent(event))
-                {
-                switch(event.type){ //ให้ใช้คำสั่ง event ไม่ให้กดค้างได้
-                    case sf::Event::Closed:
-                        window.close();
-                        break;
 
-                    case sf::Event::KeyPressed:
-                         if (event.key.code == sf::Keyboard::Space){
-                            //std::cout << "Talked to Lucy!" << std::endl;
-                            titlestate=0;
-                            //std::cout << "Space pressed" << std::endl;
-                            titletext.setString("");
-                            window.clear();
-                         }
-                         break;
-                    default:
-                        break;
-                    }
+        //window.display();
+            sf::Event event;
+            while (window.pollEvent(event))
+                {
+                    switch(event.type){ //ให้ใช้คำสั่ง event ไม่ให้กดค้างได้
+                        case sf::Event::Closed:
+                            window.close();
+                            break;
+
+                        case sf::Event::KeyPressed:
+                             if (event.key.code == sf::Keyboard::Space){
+                                //std::cout << "Talked to Lucy!" << std::endl;
+                                titlestate=0;
+                                window.clear();
+                                window.display();
+                                //std::cout << "Space pressed" << std::endl;
+                             }
+                             break;
+                        default:
+                            break;
+                        }
                }
-    }
-        else{
+            ;
+        }else{
+            window.clear();
+            window.display();
             sf::Text text;
             text.setFont(font);
             text.setString("press WASD to move around");
@@ -179,6 +185,8 @@ int main( )
             int lucyflag =0;
             while (window.isOpen()) //คำสั่งนี้คือบังคับหน้าต่างให้เปิดทิ้งไว้***
             {
+
+
                 sf::Event event; //เริ่ม event ตรวจการกดปิด
                 while (window.pollEvent(event))
                 {
