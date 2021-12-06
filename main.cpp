@@ -58,11 +58,78 @@ int main()
             {
                 if (user == 'J')
                 {
-                    score -= 0;
+                    score += 3;
+                    if (user == 'J'){
+                        score +=1;
+                    }
+                    else if (user == 'K')
+                    {
+                        score +=0;
+                    }
+                    
                 }
                 else if (user == 'K')
                 {
-                    score += 0;
+                    score += 3;
+                    if (user == 'J'){
+                        score +=1;
+                    }
+                    else if (user == 'K')
+                    {
+                        score += 5;
+                    }
+                    
+                }
+                else if (user == 'L'){
+                        score +=5;
+                        if (user == 'J'){
+                            score +=1;
+                        }
+                        else if (user == 'K'){
+                            score +=0;
+                        }
+                }
+            }
+            //Question Justice 1.2
+            else if (count_Q == 4)
+            {
+                if (user == 'J'){
+                    score -= 5;
+                }
+                else if (user == 'K')
+                {
+                    score +=5;
+                }
+                
+            }
+            //Question Justice 1.3
+            else if (count_Q == 5)
+            {
+                if (user == 'J'){
+                    score -=5;
+                }
+                else if (user == 'K')
+                {
+                    score +=5;
+                }
+                else if (user == 'L')
+                {
+                    score +=3;
+                }
+                
+            }
+            else if (count_Q == 6)
+            {
+                if(user == 'J'){
+                    score +=5;
+                }
+                else if (user == 'K')
+                {
+                    score -=5
+                }
+                else if (user == 'L')
+                {
+                    score +=3
                 }
             }
             count_Q += 1
